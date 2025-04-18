@@ -92,6 +92,7 @@ app.get("/users", (req, res) => {
       }
   } else {
     res.send(users);
+
   }
 });
 
