@@ -79,18 +79,17 @@ app.get("/users", (req, res) => {
   if (name != undefined) {
     let result1 = findUserByName(name);
 
-    if(job != undefined) {
-      let result2 = findUserByJob(job);
-      result = result1.filter(element => result2.includes(element));
+      if(job != undefined) {
+        let result2 = findUserByJob(job);
+        let result = result1.filter(element => result2.includes(element));
 
-      result = { users_list: result };
-      res.send(result);
-    }
-    else{
-      result1 = { users_list: result1 };
-      res.send(result1);
-    
-    }
+        result = { users_list: result };
+        res.send(result);
+      }else{
+        result1 = { users_list: result1 };
+        res.send(result1);
+      
+      }
   } else {
     res.send(users);
   }
