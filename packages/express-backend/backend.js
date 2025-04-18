@@ -89,6 +89,7 @@ app.get("/users", (req, res) => {
     else{
       result1 = { users_list: result1 };
       res.send(result1);
+    
     }
   } else {
     res.send(users);
@@ -112,9 +113,9 @@ app.post("/users", (req, res) => {
 });
 
 
-app.delete("/users", (req, res) => {
-  const DelId = req.query.id;
-  const index = users["users_list"](del => del["id"] === DelId);
+app.delete("/users/:id", (req, res) => {
+  const DelId = req.params["id"];
+  const index = users["users_list"].findIndex(element => element["id"] === DelId);
   if (index !== -1) {
       users["users_list"].splice(index, 1);
       res.send();
