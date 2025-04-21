@@ -9,7 +9,7 @@ const findUserByName = (name) => {
 };
 
 const findUserByJob = (job) => {
-  return users["users_list"].filter(
+  return users["users_list"].filter( 
     (user) => user["job"] === job
   );
 };
