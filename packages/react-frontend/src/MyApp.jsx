@@ -20,8 +20,8 @@ function MyApp() {
   function removeOneCharacter(index) {
     const person = characters[index];
     deleteUser(person)
-      .then((res) => {
-        if (res.status == 204) {
+      .then((response) => {
+        if (response.status == 204) {
           const updated = characters.filter((user) => user._id != person._id);
           setCharacters(updated);
         }

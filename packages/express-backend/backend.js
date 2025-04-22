@@ -117,11 +117,12 @@ app.post("/users", (req, res) => {
 
 
 app.delete("/users/:id", (req, res) => {
-  const DelId = req.params["id"];
+  const DelId = req.params.id.slice(1);
   const index = users["users_list"].findIndex(element => element["id"] === DelId);
+  console.log(DelId);
   if (index !== -1) {
       users["users_list"].splice(index, 1);
-      res.status(204).send();
+      res.sendStatus(204);
   } else {
       res.sendStatus(404); 
   }
