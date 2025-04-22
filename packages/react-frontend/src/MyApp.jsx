@@ -7,7 +7,7 @@ function MyApp() {
   const [characters, setCharacters] = useState([]);
 
   function deleteUser(person) {
-    const promise = fetch(`http://localhost:8000/users/${person._id}`, {
+    const promise = fetch(`http://localhost:8000/users/:${person._id}`, {
       method: "DELETE",
       hedaers: {
         "Content-Type": "application/json"
@@ -25,7 +25,6 @@ function MyApp() {
           const updated = characters.filter((user) => user._id != person._id);
           setCharacters(updated);
         }
-        else throw new Error("Cannot delete user");
       })
       .catch((error) => {
         console.log(error);
