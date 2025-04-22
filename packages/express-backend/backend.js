@@ -121,8 +121,7 @@ app.delete("/users/:id", (req, res) => {
   const index = users["users_list"].findIndex(element => element["id"] === DelId);
   if (index !== -1) {
       users["users_list"].splice(index, 1);
-      res.sendStatus(204); 
-      res.send();
+      res.status(204).send();
   } else {
       res.sendStatus(404); 
   }
