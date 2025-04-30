@@ -7,7 +7,7 @@ function MyApp() {
   const [characters, setCharacters] = useState([]);
 
   function deleteUser(person) {
-    const promise = fetch(`http://localhost:8000/users/:${person.id}`, {
+    const promise = fetch(`http://localhost:8000/users/:${person._id}`, {
       method: "DELETE",
       hedaers: {
         "Content-Type": "application/json"
@@ -22,7 +22,7 @@ function MyApp() {
     deleteUser(person)
       .then((response) => {
         if (response.status == 204) {
-          const updated = characters.filter((user) => user._id != person.id);
+          const updated = characters.filter((user) => user._id != person._id);
           setCharacters(updated);
         }
       })
